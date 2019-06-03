@@ -384,7 +384,8 @@ fs.open(path, flags[, mode], callback)
 * **mode** - 设置文件模式(权限)，文件创建默认权限为0666(可读，可写)。
 * **callback** - 回调函数，带有两个参数如：callback(err,fd)。 
   
-  *flags*参数可以是以下值：
+  *flags*参数可以是以下值：  
+  
 | flag  |                       描述                        |
 | :---: | :-----------------------------------------------: |
 |   r   |   已读取模式打开文件。如果文件不存在抛出异常。    |
@@ -442,6 +443,7 @@ fs.stat('/Users/liuht/code/itbilu/demo/fs.js', function (err,stats){
 ```
 
 stats类中的方法有：  
+
 | 方法 | 描述 |
 | :--- | :--- |
 |stats.isFile()|如果是文件返回true，否则返回false。|
