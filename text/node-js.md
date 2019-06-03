@@ -1,6 +1,6 @@
 # node.js  
 ### 引用文献：  
-* [菜鸟驿站](https://www.runoob.com/nodejs/nodejs-tutorial.html)
+* [菜鸟教程](https://www.runoob.com/nodejs/nodejs-tutorial.html)
 * [Node.js](http://nodejs.cn/api/)
 
 # 简介  
