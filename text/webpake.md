@@ -1,7 +1,9 @@
 # webpake
+`引用文献:`
+* [webpack文档](https://www.webpackjs.com/concepts/)
 
 # 概念  
-本质上，webpack是一个现代javaScript应用程序的静态模块打包器(module bundler)。当webpack处理应用程序时，他会递归的构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个bundler。  
+本质上，`webpack`是一个现代javaScript应用程序的静态模块打包器(module bundler)。当webpack处理应用程序时，他会递归的构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个`bundler`。  
 
 四个核心概念：  
 * 入口(entry)
@@ -10,11 +12,11 @@
 * 插件
 
 ## 入口[entry]   
-入口起点(entry point)指示webpack应该使用哪个模块，来作为构建其内部依赖图的开始，进入入口起点后，webpack会找出有哪些模块和库是入口起点(直接或间接)依赖关系的。  
+入口起点(entry point)指示`webpack`应该使用哪个模块，来作为构建其内部依赖图的开始，进入入口起点后，`webpack`会找出有哪些模块和库是入口起点(直接或间接)依赖关系的。  
 
-每个依赖项随即被处理，最后输出到称之为bundles的文件中，  
+每个依赖项随即被处理，最后输出到称之为`bundles`的文件中，  
 
-可以通过在webpack配置*entry*属性，来指定一个入口起点(或多个入口起点)。默认值为*./src*。  
+可以通过在`webpack`配置*entry*属性，来指定一个入口起点(或多个入口起点)。默认值为*./src*。  
 
 **webpack.config.js**  
 ```javascript
@@ -24,9 +26,9 @@ module.exports = {
 ```
 
 ## 出口[output]  
-output属性告诉webpack在哪里输出他所创建的bundles，以及如何命名这些文件，默认值为*./dist*。基本上，整个应用程序结构，都会编译到你指定的输出路径的文件夹中。你可以通过在配置中指定一个**output**字段来配置这些处理过程：  
+output属性告诉webpack在哪里输出他所创建的bundles，以及如何命名这些文件，默认值为`./dist`。基本上，整个应用程序结构，都会编译到你指定的输出路径的文件夹中。你可以通过在配置中指定一个**output**字段来配置这些处理过程：  
 
-webpack.config.js  
+`webpack.config.js`  
 ```javascript  
 const path = require('path');
 
@@ -71,7 +73,7 @@ module.exports = config;
 ```  
 以上配置中，对一个单独的module对象定义了*rules*属性，里边包含了两个必须属性：**test**和**use**。这告诉webpack编译器（compiler）如下信息：  
 
-> “嘿，webpack 编译器，当你碰到「在 require()/import 语句中被解析为 '.txt' 的路径」时，在你对它打包之前，先使用 raw-loader 转换一下。”  
+> “嘿，webpack 编译器，当你碰到「在 require()/import 语句中被解析为 `'.txt'` 的路径」时，在你对它打包之前，先使用 raw-loader 转换一下。”  
 
 *重要的是要记得，在webpack配置中定义loader时，要定义在**module.rules** 中，而不是**rules**。然而，在定义错误时webpack会给出严重的警告。*  
 
