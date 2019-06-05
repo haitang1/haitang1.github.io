@@ -10,3 +10,6 @@
     8. [proxy](text/proxy.md)
     9. [代码编写习惯](text/Writecode.md)
     10. [Babel](text/Babel.md)
+
+* **学习笔记**  
+  * [六月](notes/june.md)

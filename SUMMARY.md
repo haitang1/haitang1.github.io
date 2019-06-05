@@ -11,4 +11,6 @@
     * [proxy](text/proxy.md)
     * [代码编写习惯](text/Writecode.md)
     * [Babel](text/Babel.md)
+* 学习笔记
+    * [六月](notes/june.md)
 
