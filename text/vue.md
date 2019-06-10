@@ -1,6 +1,6 @@
 # vue.js
 `引用文献:`  
-* vue.js文档
+* [vue.js文档](https://cn.vuejs.org/v2/guide/installation.html)
 
 
 # Vue实例  

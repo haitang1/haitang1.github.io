@@ -1,7 +1,9 @@
 # 六月
 
 # 6/5  
-## JavaScript 模块系统: CommonJs、AMD、ES2015比较  
+## JavaScript 模块系统: CommonJs、AMD、ES2015比较 
+`引用`
+[JavaScript Module Systems Showdown: CommonJS vs AMD vs ES2015](https://auth0.com/blog/javascript-module-systems-showdown/)
 
 随着JavaScript开发变得越来越普遍，命名空间(namespaces)和依赖关系性(depedencies)变得越来越难以处理。以模块系统(module systems)的形式开发了不同的解决方案处理该问题。  
 
