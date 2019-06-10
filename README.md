@@ -1,6 +1,6 @@
 介绍目前前端框架所使用的技术
 * **目录**
-    1. [Git](textv/Git.md)
+    1. [Git](text/Git.md)
     2. [node.js](text/node-js.md)
     3. [webpake](text/webpake.md)
     4. [vue](text/vue.md)
@@ -13,3 +13,4 @@
 
 * **学习笔记**  
   * [六月](notes/june.md)
+  * [项目介绍](notes/project.md)
