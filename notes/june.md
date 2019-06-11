@@ -65,7 +65,7 @@ JavaScript模块系统尝试处理这些问题。他们的诞生是为了使用�
 var myRevealingModule = (function()
 {
     var privateVar = "Ben Cherry",
-        publicVar = "Hey there";
+        publicVar ="Hey there";
 
     function privateFunction(){
         console.log("Name:" + privateVar);
