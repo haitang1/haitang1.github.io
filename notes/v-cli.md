@@ -43,4 +43,89 @@ vue init webpack my-project
 |-- package.json                     // 项目基本信息,包依赖信息等
 --------------------- 
 
+```  
+
+## 引入elementUI  
+
 ```
+npm i element-ui -S
+```
+
+## 安装less  
+```
+npm i --save-dev
+```
+## 创建一个登录页  
+
+### 定义首页的路由  
+通过`Vue-router`插件管理链接路径。文件在`src/router/index.js`路径。
+```javascript
+import Vue from 'vue'   //引入Vue
+import Router from 'vue-router'  //引入vue-router
+import Hello from '@/components/Hello'  //引入根目录下的Hello.vue组件
+ 
+Vue.use(Router)  //Vue全局使用Router
+ 
+export default new Router({
+  routes: [              //配置路由，这里是个数组
+    {                    //每一个链接都是一个对象
+      path: '/',         //链接路径
+      name: 'Hello',     //路由名称，
+      component: Hello   //对应的组件模板
+    }
+  ]
+})
+```
+### 引入element组件  
+
+在`main.js`中写入以下内容：
+```javascript
+import Vue from 'vue'
+import App from './App'
+import router from './router'
+import ElementUI from 'element-ui'  //引入element
+import 'element-ui/lib/theme-chalk/index.css'  //引入element路径
+
+
+Vue.use(ElementUI)  //全局使用element组件
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  router,
+  components: { App },
+  template: '<App/>',
+  render: h => h(App)
+})
+```
+### 增加一个登录后显示的页面  
+* 在`src/components`目录下，新建Hi.vue文件。
+* 在`router/index.js`引入Hi组件
+```
+import Hi from '@/components/Hi'
+```
+* 增加路由配置：在routes[]数组中
+```
+{
+  path:'/hi',
+  name:'Hi',
+  component:Hi
+}
+```  
+
+### 自定义添加公共组件  
+
+把创建好的组件放到模板中  
+```
+import leftNav from '@/components/common/leftNav'
+```
+引入后在vue的构造器里添加components属性  
+```
+export default {
+  name: 'app',
+  components:{
+    leftNav
+  }
+}
+```
+组件引入成功，可以在`<template>`区域使用`（<leftNav></leftNav>）`
