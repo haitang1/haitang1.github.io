@@ -14,3 +14,4 @@
 * **学习笔记**  
   * [六月](notes/june.md)
   * [项目介绍](notes/project.md)
+  * [v-cli](notes/v-cli.md)
