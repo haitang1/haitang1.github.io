@@ -53,7 +53,7 @@ npm i element-ui -S
 
 ## 安装less  
 ```
-npm i --save-dev
+npm i less --save-dev
 ```
 ## 创建一个登录页  
 
@@ -128,4 +128,56 @@ export default {
   }
 }
 ```
-组件引入成功，可以在`<template>`区域使用`（<leftNav></leftNav>）`
+组件引入成功，可以在`<template>`区域使用`（<leftNav></leftNav>）`  
+
+### 引用less预处理器  
+
+安装`less-loader`  
+```
+$ npm install less-loader --save-dev
+```  
+
+然后将`loader`添加到`webpack`配置中。  
+**webpack.config.js**  
+```javascript
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.less$/,
+        loader: 'less-loader', // compiles Less to CSS
+      },
+    ],
+  },
+};
+```  
+使用css-loader和style-loader链接less-loader，将所有样式应用于DOM。  
+**webpack.config.js**  
+```javascript
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: 'style-loader', // creates style nodes from JS strings
+          },
+          {
+            loader: 'css-loader', // translates CSS into CommonJS
+          },
+          {
+            loader: 'less-loader', // compiles Less to CSS
+          },
+        ],
+      },
+    ],
+  },
+};
+```  
+然后你就可以导入相应的文件类型，或在 `*.vue` 文件中这样来使用  
+```less
+<style lang="less">
+$color: red;
+</style>
+```

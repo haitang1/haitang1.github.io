@@ -15,7 +15,7 @@ var vm = new Vue({
     var vm = new Vue({
         el: '#vue_det',
         data: {
-            site: "菜鸟教程",
+            site: "教程",
             url: "www.runoob.com",
             alexa: "10000"
         },
