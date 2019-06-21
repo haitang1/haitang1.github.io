@@ -1,12 +1,5 @@
 # 项目介绍
 
-## 项目描述  
-项目名称为东骏科技-Mes系统，此运营平台分为基础管理、物料管理、生产管理、系统报表三个大的模块，每个模块下还有不同的功能模块，在前端是以一个左侧栏展示出三个大的模块，大的模块中内嵌所包含的子模块。在内容展示区域设置了一个Tab标签页，每次点击菜单中的模块，都会在标签页中新增一个标签，能在同一个页面中切换之前操作过的模块。在本公司的框架中有一个系统功能模块，中间有一个菜单管理功能，菜单管理中能够添加各个级别的菜单。每个菜单添加一个唯一的URL，在编写各个功能的页面中通过关联URL，就能把编写的功能模块引用到页面中。  
-
-使用的开发工具是Visual Studio，使用的框架是vue cli,使用elementUi组件库进行页面布局，使用了vue.js、typescript，在系统的各功能模块中有许多表格的增、删、改和表单的查询、校验。在框架中开发人员已经编写了一套基于elemenUi中部分组件的组件。能够在自己的框架中更方便的实现布局和功能。在一个增、删、改页面中使用elemenUI组件库中table组件，Form表单组件，自定义的Container容器组件。在功能的实现上使用了vue.js和typescript，使用axios与后台进行数据交互。  
-
-为了更有条理的编写代码，框架中使用了webpack打包系统，分别编写不同功能的模块，通过引用实现不同的功能。  
-
 ##  webpack.build.conf.js  文件结构  
 此文件为`webpack`的基础配置。  
 ```javascript
@@ -143,4 +136,131 @@ module.exports = function () {
 	}
 }
 ```
-> 
+## 自我介绍  
+
+### 姓名、籍贯  
+我叫刘海堂，来自湖南 
+### 在校学习经历  
+学历是大专，在校所学的专业为计算机网络技术，2017-7~2018-3在校参加过实习，2018年期间学习了web前端开发技术。目前在杭州塔沙信息科技公司实习。  
+
+### 目前所掌握的知识  
+
+* 掌握HTML，JavaScript基础，es6语法。
+* 熟悉Ajax,JQuery,Vue.js,等web开发技术。
+* 熟悉Vue框架原理和使用和ElementUI组件库的使用。
+* 了解less，TypeScript语言。
+* 掌握Visual Studio,WebStorm相关开发工具的使用。
+* 了解Chrome浏览器开发者工具进行调试。
+* 了解掌握git版本控制器的使用。
+* 具有良好的代码编写规范，熟悉word、Excel及其他办公软件  
+
+### 工作经历，参加过的项目  
+
+项目名称为东骏科技-Mes系统，此运营平台分为基础管理、物料管理、生产管理、系统报表三个大的模块，每个模块下还有不同的功能模块，在前端是以一个左侧栏展示出三个大的模块，大的模块中内嵌所包含的子模块。在内容展示区域设置了一个Tab标签页，每次点击菜单中的模块，都会在标签页中新增一个标签，能在同一个页面中切换之前操作过的模块。在本公司的框架中有一个系统功能模块，中间有一个菜单管理功能，菜单管理中能够添加各个级别的菜单。每个菜单添加一个唯一的URL，在编写各个功能的页面中通过关联URL，就能把编写的功能模块引用到页面中。  
+
+使用的开发工具是Visual Studio，使用的框架是vue cli,使用elementUi组件库进行页面布局，使用了vue.js、typescript，在系统的各功能模块中有许多表格的增、删、改和表单的查询、校验。在框架中开发人员已经编写了一套基于elemenUi中部分组件的组件。能够在自己的框架中更方便的实现布局和功能。在一个增、删、改页面中使用elemenUI组件库中table组件，Form表单组件，自定义的Container容器组件。在功能的实现上使用了vue.js和typescript，使用axios与后台进行数据交互。  
+
+为了更有条理的编写代码，框架中使用了webpack打包系统，分别编写不同功能的模块，通过引用实现不同的功能。  
+
+
+### less  
+
+less是一个css预处理器，可以为网站启用自定义，可管理和可重用的样式表。css预处理器是一种脚本语言，可扩展css并将其编译为css语法，以便可以通过web浏览器读取。提供了变量、函数、mixins等功能，可以构建动态的css。  
+
+#### Variables (变量)  
+通过`@` 定义变量：  
+```less
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+
+#header {
+	color: @light-blue;
+}
+```
+输出：  
+```css
+#header{
+	color: #6c94be;
+}
+```
+
+#### Mixins(混合)  
+混合就是将一系列属性从一个规则集引入到另一个规则集的方式  
+```less
+.bordered{
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+
+#menu a {
+  color: #111;
+  .bordered;
+}
+
+.post a {
+  color: red;
+  .bordered;
+}
+```  
+输出：  
+```css
+.bordered {
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+#menu a {
+  color: #111;
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+.post a {
+  color: red;
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+
+```  
+#### Nested rules (嵌套规则)
+
+```less
+#header{
+  color: black;
+  .navigation{
+    font-size: 12px;
+  }
+  .logo{
+    width: 300px;
+  }
+}
+```
+输出：  
+```css
+#header {
+  color: black;
+}
+#header .navigation {
+  font-size: 12px;
+}
+#header .logo {
+  width: 300px;
+}
+
+```    
+嵌套规则模仿了HTML结构，这样的代码更简洁。  
+
+也可以在混合中包含伪类。清除浮动实例  
+```less
+.clearfix{
+  display: block;
+  zoom: 1;
+
+  &:after {  //& 表示当前选择器的父选择器
+    content: "";
+    display: block;
+    font-size: 0;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+```
