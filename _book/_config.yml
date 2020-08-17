@@ -1,4 +1,4 @@
-theme:
+deploy:
   type: git
   repo: https://github.com/haitang1/haitang1.github.io.git
   branch: master
