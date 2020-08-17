@@ -1,4 +1,7 @@
-# node.js
+# node.js  
+`引用文献：`  
+* [菜鸟教程](https://www.runoob.com/nodejs/nodejs-tutorial.html)
+* [Node.js](http://nodejs.cn/api/)
 
 # 简介  
 Node.js是运行在服务端的JavaScript。Node.js是一个基于Chrome JavaScript运行时建立的一个平台。  
@@ -180,7 +183,9 @@ $ npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
 $ cnpm install [name]
 ``` 
-
+# node.js模块系统  
+为了让Node.js的文件可以相互调用，Node.js提供了一个简单的模块系统。  
+模块是Node.js应用程序的基本组成部分，文件和模块是一一对应的。一个node.js文件就是一个模块，这个文件可能是JavaScript代码、JSON或者编译过的C/C++扩展。
 # Node.js Web 模块  
 
 ## 什么是Web服务器？  
@@ -195,3 +200,577 @@ Web服务器一般指网站服务器，是指驻留于因特网上某种类型�
 * Business - 业务层， 通过 Web 服务器处理应用程序，如与数据库交互，逻辑运算，调用外部程序等。
 * Data - 数据层，一般由数据库组成。
 
+# 使用Node创建Web服务器  
+Node.js 提供了 http 模块，http 模块主要用于搭建 HTTP 服务端和客户端，使用 HTTP 服务器或客户端功能必须调用 http 模块，代码如下：  
+```javascript
+var http = require('http');
+```
+
+实例：  
+```javascript
+var http = require('http');
+var fs = require('fs');
+var url = require('url');
+ 
+ 
+// 创建服务器
+http.createServer( function (request, response) {  
+   // 解析请求，包括文件名
+   var pathname = url.parse(request.url).pathname;
+   
+   // 输出请求的文件名
+   console.log("Request for " + pathname + " received.");
+   
+   // 从文件系统中读取请求的文件内容
+   fs.readFile(pathname.substr(1), function (err, data) {
+      if (err) {
+         console.log(err);
+         // HTTP 状态码: 404 : NOT FOUND
+         // Content Type: text/html
+         response.writeHead(404, {'Content-Type': 'text/html'});
+      }else{             
+         // HTTP 状态码: 200 : OK
+         // Content Type: text/html
+         response.writeHead(200, {'Content-Type': 'text/html'});    
+         
+         // 响应文件内容
+         response.write(data.toString());        
+      }
+      //  发送响应数据
+      response.end();
+   });   
+}).listen(8080);
+ 
+// 控制台会输出以下信息
+console.log('Server running at http://127.0.0.1:8080/');
+```
+
+index.html 文件  
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+    <h1>我的第一个标题</h1>
+    <p>我的第一个段落。</p>
+</body>
+</html>
+```
+
+执行 server.js 文件：
+```
+$ node server.js
+Server running at http://127.0.0.1:8080/
+```
+
+在浏览器中打开地址：http://127.0.0.1:8080/index.html，显示如下图所示:
+![shuchu](/images/6E0D2A5C-0339-4D61-858D-A4EEB5763D98.jpg)
+
+执行 server.js 的控制台输出信息如下：  
+```
+Server running at http://127.0.0.1:8080/
+Request for /index.html received.     #  客户端请求信息
+```
+
+## 使用 Node 创建 Web 客户端  
+Node 创建 Web 客户端需要引入 http 模块,创建 client.js 文件  
+```javascript
+var http = require('http');
+ 
+// 用于请求的选项
+var options = {
+   host: 'localhost',
+   port: '8080',
+   path: '/index.html'  
+};
+ 
+// 处理响应的回调函数
+var callback = function(response){
+   // 不断更新数据
+   var body = '';
+   response.on('data', function(data) {
+      body += data;
+   });
+   
+   response.on('end', function() {
+      // 数据接收完成
+      console.log(body);
+   });
+}
+// 向服务端发送请求
+var req = http.request(options, callback);
+req.end();
+```
+
+执行 client.js 文件，输出结果如下：
+```
+$ node  client.js 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+</head>
+<body>
+    <h1>我的第一个标题</h1>
+    <p>我的第一个段落。</p>c
+</body>
+</html>
+```
+
+执行 server.js 的控制台输出信息如下：  
+```
+Server running at http://127.0.0.1:8080/
+Request for /index.html received.   # 客户端请求信息
+```  
+# Node.js 文件系统  
+Node.js提供了一组类似UNIX(POSIX)标准的文件操作API。Node导入文件系统模块(fs)语法如下所示：  
+```
+var fs = require("fs)
+```
+
+# 异步同步  
+Node.js文件系统(fs模块)模块中的方法均有异步和同步版本，例如读取文件类容的函数有异步的fs.readFile()合同部的fs.readFileSync()。  
+异步的方法函数最后一个参数为回调函数，回调函数的第一个参数包含了错误信息(error)。  
+比起同步，异步方法性能更高，速度更快，没有阻塞。  
+
+## 实例  
+创建input.text文件，类容如下：
+```
+网站地址：www.haitng.com
+文件读取实例
+```
+
+创建file.js文件，代码如下：  
+```javascript
+var fs = require("fs");
+
+//异步读取
+fs.readFile('input.text',function(err,data){
+   if(err){
+      return console.error(err);
+   }
+   console.log("异步读取："+ data.toString());
+});
+
+//同步读取
+var data = fs.readFileSync('input.txt');
+console.log("同步读取："+ data.tostring());
+
+console.log("程序执行完毕。");
+```  
+结果如下：  
+```
+$ node file.js
+异步读取：网站地址：www.haitng.com
+文件读取实例
+
+同步读取：网站地址：www.haitng.com
+文件读取实例
+
+程序读取完毕
+``` 
+
+# 打开文件  
+
+## 语法  
+一下为在异步模式下打开文件的语法格式：
+```javaScript
+fs.open(path, flags[, mode], callback)
+``` 
+
+## 参数  
+参数使用说明如下：  
+* **path** - 文件的路径。
+* **flags** - 文件打开的行为。
+* **mode** - 设置文件模式(权限)，文件创建默认权限为0666(可读，可写)。
+* **callback** - 回调函数，带有两个参数如：callback(err,fd)。 
+  
+  *flags*参数可以是以下值：  
+  
+| flag | 描述                                              |
+| :--- | :------------------------------------------------ |
+| r    | 已读取模式打开文件。如果文件不存在抛出异常。      |
+| r+   | 以读写模式打开文件。如果文件不存在抛出异常。      |
+| rs   | 以同步的方式读取文件。                            |
+| rs+  | 以同步的方式读取和写入文件                        |
+| w    | 以写入模式打开文件，如果文件不存在则创建。        |
+| wx   | 类似'w',但是如果文件的路径存在，则文件写入失败。  |
+| W+   | 以读写模式打开文件，如果文件不存在则建立          |
+| wx+  | 类似'w+',但是如果文件的路径存在，则文件写入失败。 |
+| a    | 以追加模式打开文件，如果文件不存在则创建          |
+| ax   | 类似'a'，如果文件路径存在，则文件追加失败。       |
+| a+   | 以读取追加模式打开文件，如果文件不存在则建立。    |
+| ax+  | 类似'a+'，如果文件路径存在，则文件读取追加失败。  |
+## 实例  
+创建 file.js 文件，并打开 input.txt 文件进行读写  
+```javaScript
+var fs require("fs");
+
+//异步打开文件
+console.log("准备打开文件！");
+fs.open('input.txt', 'r+', function(err, fd){
+   if(err){
+      return console.error(err);
+   }
+   console.log("文件打开成功！");
+});
+```
+以上代码执行结果如下：  
+```
+$ node file.js 
+准备打开文件！
+文件打开成功！
+```
+
+# 获取文件信息  
+## 语法  
+通过异步模式获取文件信息的语法格式：  
+```javaScript
+fs.stat(path, callback)
+```
+
+## 参数  
+参数使用说明如下：  
+* **path** - 文件路径。 
+* **callback** - 回调函数，带有两个参数：(err,stats),*stats*是fs.Stats对象。  
+
+fs.stat(path)执行后，会将stats类的实例返回给其回调函数。可以通过stats类中的提供方法判断文件的相关属性。例如判断是否为文件：  
+```javascript
+var fs = require('fs');
+
+fs.stat('/Users/liuht/code/itbilu/demo/fs.js', function (err,stats){
+   console.log(stats.isFile()); //true
+})
+```
+
+stats类中的方法有：  
+
+| 方法                      | 描述                                                                         |
+| :------------------------ | :--------------------------------------------------------------------------- |
+| stats.isFile()            | 如果是文件返回true，否则返回false。                                          |
+| stats.isDirectory()       | 如果是目录返回true，否则返回false。                                          |
+| stats.isBlockDevice()     | 如果是块设备返回 true，否则返回 false。                                      |
+| stats.isCharacterDevice() | 如果是字符设备返回 true，否则返回 false。                                    |
+| stats.isSymbolicLink()    | 如果是软链接返回 true，否则返回 false。                                      |
+| stats.isFIFO()            | 如果是FIFO，返回true，否则返回 false。FIFO是UNIX中的一种特殊类型的命令管道。 |
+| stats.isSocket()          | 如果是 Socket 返回 true，否则返回 false。                                    |
+
+## 实例  
+创建 file.js 文件：
+```javascript
+var fs = require("fs");
+
+console.log("准备打开文件！");
+fs.stat('input.txt',function (err, stats){
+   if (err){
+      return console.error(err);
+   }
+   console.log(stats);
+   console.log("读取文件信息成功！");
+
+   //检测文件类型
+   console.log("是否为文件(isFile)?" + stats.isFile());
+   console.log("是否为目录(isDirectory)?" + stats.isDirectoy());
+});
+```
+
+代码执行的结果：  
+```java
+$ node file.js 
+准备打开文件！
+{ dev: 16777220,
+  mode: 33188,
+  nlink: 1,
+  uid: 501,
+  gid: 20,
+  rdev: 0,
+  blksize: 4096,
+  ino: 40333161,
+  size: 61,
+  blocks: 8,
+  atime: Mon Sep 07 2015 17:43:55 GMT+0800 (CST),
+  mtime: Mon Sep 07 2015 17:22:35 GMT+0800 (CST),
+  ctime: Mon Sep 07 2015 17:22:35 GMT+0800 (CST) }
+读取文件信息成功！
+是否为文件(isFile) ? true
+是否为目录(isDirectory) ? false
+```
+
+# 写入文件  
+
+## 语法  
+语法格式：  
+```javascript
+fs.writeFile(file,data[,options], callback)
+```
+writeFile直接打开文件默认是**w**模式，所以如果问价存在，该方法写入的内容会覆盖旧的文件内容。  
+
+## 参数  
+
+参数使用说明如下：  
+* **file** - 文件或文件描述符。
+* **data** - 要写如文件的数据，可以是String(字符串)或Buffer(缓冲)对象。
+* **option** - 该参数是一个对象，包含{encoding,mode,flag}。默认编码为utf8,模式为0666 ， flag为'W'
+* **callback** - 回调函数，回调函数只包括错误信息参数(err),写入失败时返回。
+
+## 实例  
+创建 file.js 文件  
+``` javascript
+var fs = require("fs");
+
+console.log("准备写入文件"); 
+fs.writeFile('input.text','我是通过fs.writeFile写入文件的内容', function(err){
+   if (err){
+      return console.log(err);
+   }
+   console.log("数据写入成功！");
+   console.log("-----------");
+   console.log("读取写入的数据");
+   fs.readFile('input.txt',function(err,data){
+      if(err){
+         return console.error(err);
+      }
+      console.log("异步读取数据："+ data.toString());
+   });
+});
+```
+
+结果如下：  
+```java
+$ node file.js 
+准备写入文件
+数据写入成功！
+--------我是分割线-------------
+读取写入的数据！
+异步读取文件数据: 我是通 过fs.writeFile 写入文件的内容
+```
+
+# 读取文件  
+
+## 语法  
+读取文件的语法格式：
+```javascript
+fs.read(fd, buffer, offset, length, position, callback)
+```  
+## 参数  
+参数使用说明：  
+* **fd** - 通过fs.open()方法返回的文件描述符。
+* **buffer** - 数据写入的缓冲区。
+* **offset** - 缓冲区写入的写入偏移量。
+* **length** - 要从文件中读取的字节数。
+* **position** - 文件读取的起始位置，如果position的值为null，则会从当前文件指针的位置读取。  
+* **callback** - 回调函数，有三个参数err,bytesRead,buffer,err为错误信息，bytesRead表示读取的字节数，buffer为缓冲区对象。
+
+## 实例  
+input.txt 文件内容为：  
+```
+地址为：www.github.com
+```  
+file.js文件：  
+```javascript
+var fs = require("fs");
+var buf = new Buffer.alloc(1024);
+
+console.log("准备打开已存在的文件！");
+fs.open('input.txt','r+',function(err,fd){
+   if(err){
+      return console.error(err);
+   }
+   console.log("文件打开成功！");
+   console.log("准备读取文件：");
+   fs.read(fd,buf,0,buf.length,0,function(err,bytes){
+      if(err){
+         console.log(err);
+      }
+      console.log(bytes + "字节被读取");
+
+      //仅输出读取的字节
+      if(byts > 0){
+         console.log(buf.slice(0,bytes).toString())
+      }
+   })
+})
+```  
+运行结果：  
+```java
+$ node file.js 
+准备打开已存在的文件！
+文件打开成功！
+准备读取文件：
+42  字节被读取
+地址：www.github.com
+```  
+
+# 关闭文件  
+## 语法  
+关闭文件的语法格式：  
+```javascript
+fs.close(fd, callback)
+```  
+该方法使用了文件描述符来读取文件。  
+
+## 参数  
+参数的使用说明：  
+* fd - 通过fs.open()方法返回的文件描述符。
+* callback - 回调函数，没有参数。
+
+## 实例  
+input.txt文件：  
+```
+网站地址：www.github.com
+```  
+创建file.js文件，代码如下所示：  
+```javascript
+var fs = require('fs');
+var buf = new Buffer.alloc(1024);
+
+console.log("准备打开文件！");
+fs.open('input.txt','r+',function(err,fd){
+   if(err){
+      return console.error(err);
+   }
+   console.log("文件打开成功！");
+   console.log("准备读取文件！");
+   fs.read(fd,buf,0,buf.length,0,function(err,bytes){
+      if(err){
+         console.log(err);
+      }
+      console.log(bytes + "字节被读取");
+
+      //仅输出读取的字节  
+      if(bytes > 0){
+         console.log(buf.slice(0,bytes).toString());
+      }
+
+      //关闭文件
+      fs.close(fd, function(err){
+         if(err){
+            console.log(err);
+         }
+         console.log("关闭文件成功");
+      });
+   });
+});
+```  
+
+运行结果如下：  
+
+```java
+准备打开文件！
+文件打开成功！
+准备读取文件！
+地址：www.github.com
+文件关闭成功
+```  
+# 截取文件  
+## 语法  
+截取文件的语法格式：  
+```javascript
+fs.ftruncate(fd, len, callback)
+```  
+
+## 参数  
+参数的使用说明：  
+* fd - 通过 fs.open()方法返回的文件描述符。
+* len - 文件内容截取的长度。
+* callback - 回调函数，没有参数。
+
+## 实例  
+input.txt文件内容：  
+```
+site:www.github.com
+```  
+
+创建file.js文件，  
+```javascript
+var fs = require("fs")
+var buf = new Buffer.alloc(1024);
+
+console.log("准备打开文件！");
+fs.open('input.txt','r+',function(err,fd){
+   if(err){
+      return console.error(err);
+   }
+   console.log("文件打开成功！");
+   console.log("截取10字节内的文件内容，超出部分将被去除");
+
+   //截取文件
+   fs.ftruncate(fd,10,function(err){
+      if(err){
+         console.log(err);
+      }
+      console.log("文件截取成功。");
+      console.log("读取相同的文件");
+      fs.read(fd, buf,0,buf.length,0,function(err, bytes){
+         if(err){
+            console.log(err);
+         }
+         //仅输出读取的字节  
+         if(bytes > 0){
+            console.log(buf.slice(0,bytes).toString());
+         }
+
+         //关闭文件
+         fs.close(fd, function(err){
+            if(err){
+               console.log(err);
+            }
+            console.log("文件关闭成功！");
+         });
+      });
+   });
+});
+```  
+
+以上代码执行结果如下：  
+
+```java
+$ node file.js 
+准备打开文件！
+文件打开成功！
+截取10字节内的文件内容，超出部分将被去除。
+文件截取成功。
+读取相同的文件
+site:www.g
+文件关闭成功
+```
+#  删除文件  
+## 语法  
+删除文件的语法格式：  
+```javascript
+fs.unlink(path,callback)
+```  
+## 参数  
+参数使用说明如下：  
+* **path** - 文件路径
+* **callback** - 回调函数，没有参数。  
+
+# 实例  
+input.txt文件内容为：  
+```
+site:www.github.com
+```  
+file.js文件：  
+```javascript
+var fs = require("fs");
+
+console.log("准备删除文件！");
+fs.unlink('input.txt',function(err){
+   if(err){
+      return console.error(err);
+   }
+   console.log("文件删除成功！");
+})
+```  
+以上代码执行结果如下：  
+```java
+$ node file.js 
+准备删除文件！
+文件删除成功！
+```  
+
+# 体会  

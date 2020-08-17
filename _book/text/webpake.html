@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="TypeScript.html" />
+    <link rel="next" href="vue.html" />
     
     
-    <link rel="prev" href="vue.html" />
+    <link rel="prev" href="node-js.html" />
     
 
     </head>
@@ -129,12 +129,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.1.3" data-path="vue.html">
+        <li class="chapter active" data-level="1.1.3" data-path="webpake.html">
             
-                <a href="vue.html">
+                <a href="webpake.html">
             
                     
-                    vue.js
+                    webpake
             
                 </a>
             
@@ -142,12 +142,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.1.4" data-path="webpake.html">
+        <li class="chapter " data-level="1.1.4" data-path="vue.html">
             
-                <a href="webpake.html">
+                <a href="vue.html">
             
                     
-                    webpake
+                    vue.js
             
                 </a>
             
@@ -220,6 +220,122 @@
             
         </li>
     
+        <li class="chapter " data-level="1.1.10" data-path="Babel.html">
+            
+                <a href="Babel.html">
+            
+                    
+                    Babel
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    学习笔记
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../notes/june.html">
+            
+                <a href="../notes/june.html">
+            
+                    
+                    六月
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../notes/project.html">
+            
+                <a href="../notes/project.html">
+            
+                    
+                    项目介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../notes/v-cli.html">
+            
+                <a href="../notes/v-cli.html">
+            
+                    
+                    v-cli
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../notes/less.html">
+            
+                <a href="../notes/less.html">
+            
+                    
+                    less
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    java
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../java/fanshe.html">
+            
+                <a href="../java/fanshe.html">
+            
+                    
+                    反射
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -271,6 +387,245 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="webpake">webpake</h1>
+<p><code>&#x5F15;&#x7528;&#x6587;&#x732E;:</code></p>
+<ul>
+<li><a href="https://www.webpackjs.com/concepts/" target="_blank">webpack&#x6587;&#x6863;</a></li>
+</ul>
+<h1 id="&#x6982;&#x5FF5;">&#x6982;&#x5FF5;</h1>
+<p>&#x672C;&#x8D28;&#x4E0A;&#xFF0C;<code>webpack</code>&#x662F;&#x4E00;&#x4E2A;&#x73B0;&#x4EE3;javaScript&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x9759;&#x6001;&#x6A21;&#x5757;&#x6253;&#x5305;&#x5668;(module bundler)&#x3002;&#x5F53;webpack&#x5904;&#x7406;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x65F6;&#xFF0C;&#x4ED6;&#x4F1A;&#x9012;&#x5F52;&#x7684;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x56FE;(dependency graph)&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x542B;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x9700;&#x8981;&#x7684;&#x6BCF;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x6A21;&#x5757;&#x6253;&#x5305;&#x6210;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;<code>bundler</code>&#x3002;  </p>
+<p>&#x56DB;&#x4E2A;&#x6838;&#x5FC3;&#x6982;&#x5FF5;&#xFF1A;  </p>
+<ul>
+<li>&#x5165;&#x53E3;(entry)</li>
+<li>&#x8F93;&#x51FA;(output)</li>
+<li>loader</li>
+<li>&#x63D2;&#x4EF6;</li>
+</ul>
+<h2 id="&#x5165;&#x53E3;entry">&#x5165;&#x53E3;[entry]</h2>
+<p>&#x5165;&#x53E3;&#x8D77;&#x70B9;(entry point)&#x6307;&#x793A;<code>webpack</code>&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x54EA;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x6765;&#x4F5C;&#x4E3A;&#x6784;&#x5EFA;&#x5176;&#x5185;&#x90E8;&#x4F9D;&#x8D56;&#x56FE;&#x7684;&#x5F00;&#x59CB;&#xFF0C;&#x8FDB;&#x5165;&#x5165;&#x53E3;&#x8D77;&#x70B9;&#x540E;&#xFF0C;<code>webpack</code>&#x4F1A;&#x627E;&#x51FA;&#x6709;&#x54EA;&#x4E9B;&#x6A21;&#x5757;&#x548C;&#x5E93;&#x662F;&#x5165;&#x53E3;&#x8D77;&#x70B9;(&#x76F4;&#x63A5;&#x6216;&#x95F4;&#x63A5;)&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x7684;&#x3002;  </p>
+<p>&#x6BCF;&#x4E2A;&#x4F9D;&#x8D56;&#x9879;&#x968F;&#x5373;&#x88AB;&#x5904;&#x7406;&#xFF0C;&#x6700;&#x540E;&#x8F93;&#x51FA;&#x5230;&#x79F0;&#x4E4B;&#x4E3A;<code>bundles</code>&#x7684;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;  </p>
+<p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5728;<code>webpack</code>&#x914D;&#x7F6E;<em>entry</em>&#x5C5E;&#x6027;&#xFF0C;&#x6765;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x5165;&#x53E3;&#x8D77;&#x70B9;(&#x6216;&#x591A;&#x4E2A;&#x5165;&#x53E3;&#x8D77;&#x70B9;)&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;<em>./src</em>&#x3002;  </p>
+<p><strong>webpack.config.js</strong>  </p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">module</span>.exports = {
+    entry: <span class="hljs-string">&apos;./path/to/my/entry/file.js&apos;</span>
+};
+</code></pre>
+<h2 id="&#x51FA;&#x53E3;output">&#x51FA;&#x53E3;[output]</h2>
+<p>output&#x5C5E;&#x6027;&#x544A;&#x8BC9;webpack&#x5728;&#x54EA;&#x91CC;&#x8F93;&#x51FA;&#x4ED6;&#x6240;&#x521B;&#x5EFA;&#x7684;bundles&#xFF0C;&#x4EE5;&#x53CA;&#x5982;&#x4F55;&#x547D;&#x540D;&#x8FD9;&#x4E9B;&#x6587;&#x4EF6;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;<code>./dist</code>&#x3002;&#x57FA;&#x672C;&#x4E0A;&#xFF0C;&#x6574;&#x4E2A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7ED3;&#x6784;&#xFF0C;&#x90FD;&#x4F1A;&#x7F16;&#x8BD1;&#x5230;&#x4F60;&#x6307;&#x5B9A;&#x7684;&#x8F93;&#x51FA;&#x8DEF;&#x5F84;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5728;&#x914D;&#x7F6E;&#x4E2D;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;<strong>output</strong>&#x5B57;&#x6BB5;&#x6765;&#x914D;&#x7F6E;&#x8FD9;&#x4E9B;&#x5904;&#x7406;&#x8FC7;&#x7A0B;&#xFF1A;  </p>
+<p><code>webpack.config.js</code>  </p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path&apos;</span>);
+
+<span class="hljs-built_in">module</span>.exports = {
+    entry:<span class="hljs-string">&apos;./path/to/my/entry/file.js&apos;</span>,
+    output:{
+        path: path.resolve(__dirname, <span class="hljs-string">&apos;dist&apos;</span>),
+        filename: <span class="hljs-string">&apos;my-first-webpack.bundle.js&apos;</span>,
+    }
+};
+</code></pre>
+<p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x5B9E;&#x4F8B;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;<em>output.filename</em>&#x548C;<em>output.path</em>&#x5C5E;&#x6027;&#xFF0C;&#x6765;&#x544A;&#x8BC9;<em>webpack bundle</em>&#x7684;&#x540D;&#x79F0;&#xFF0C;&#x4EE5;&#x53CA;&#x6211;&#x4EEC;&#x60F3;&#x8981;bundle&#x751F;&#x6210;(emit)&#x5230;&#x54EA;&#x91CC;&#x3002;path&#x6A21;&#x5757;&#x662F;&#x4E00;&#x4E2A;Nodes.js &#x6838;&#x5FC3;&#x6A21;&#x5757;&#xFF0C;&#x7528;&#x4E8E;&#x64CD;&#x4F5C;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x3002;  </p>
+<h2 id="loader">loader</h2>
+<p>loader&#x8BA9;webpack&#x80FD;&#x591F;&#x53BB;&#x5904;&#x7406;&#x90A3;&#x4E9B;&#x975E;JavaScript&#x6587;&#x4EF6;&#xFF08;webpack&#x81EA;&#x751F;&#x53EA;&#x7406;&#x89E3;JavaScript&#xFF09;&#x3002;loader&#x53EF;&#x4EE5;&#x5C06;&#x6240;&#x6709;&#x7C7B;&#x578B;&#x7684;&#x6587;&#x4EF6;&#x8F6C;&#x6362;&#x4E3A;webpack&#x80FD;&#x591F;&#x5904;&#x7406;&#x7684;&#x6709;&#x6548;&#x6A21;&#x5757;&#xFF0C;&#x7136;&#x540E;&#x4F60;&#x5C31;&#x53EF;&#x4EE5;&#x5229;&#x7528;webpack&#x7684;&#x6253;&#x5305;&#x80FD;&#x529B;&#xFF0C;&#x5BF9;&#x4ED6;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x3002;  </p>
+<p>&#x672C;&#x8D28;&#x4E0A;&#xFF0C;webpack loader&#x5C06;&#x6240;&#x6709;&#x7C7B;&#x578B;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x8F6C;&#x6362;&#x4E3A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x4F9D;&#x8D56;&#x56FE;&#xFF08;&#x548C;&#x6700;&#x7EC8;&#x7684;bundle&#xFF09;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5F15;&#x7528;&#x7684;&#x6A21;&#x5757;&#x3002;  </p>
+<p><em>&#x6CE8;&#x610F;&#xFF0C;loader &#x80FD;&#x591F; import &#x5BFC;&#x5165;&#x4EFB;&#x4F55;&#x7C7B;&#x578B;&#x7684;&#x6A21;&#x5757;&#xFF08;&#x4F8B;&#x5982; .css &#x6587;&#x4EF6;&#xFF09;&#xFF0C;&#x8FD9;&#x662F; webpack &#x7279;&#x6709;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x5176;&#x4ED6;&#x6253;&#x5305;&#x7A0B;&#x5E8F;&#x6216;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x5668;&#x7684;&#x53EF;&#x80FD;&#x5E76;&#x4E0D;&#x652F;&#x6301;&#x3002;&#x6211;&#x4EEC;&#x8BA4;&#x4E3A;&#x8FD9;&#x79CD;&#x8BED;&#x8A00;&#x6269;&#x5C55;&#x662F;&#x6709;&#x5F88;&#x5FC5;&#x8981;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x53EF;&#x4EE5;&#x4F7F;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x521B;&#x5EFA;&#x51FA;&#x66F4;&#x51C6;&#x786E;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x56FE;&#x3002;</em>  </p>
+<p>&#x5728;&#x66F4;&#x9AD8;&#x7684;&#x5C42;&#x9762;&#x4E0A;&#xFF0C;webpack&#x7684;&#x914D;&#x7F6E;&#x4E2D;loader&#x6709;&#x8FDE;&#x4E2A;&#x76EE;&#x6807;&#xFF1A;  </p>
+<ol>
+<li><strong>test</strong> &#x5C5E;&#x6027;&#xFF0C;&#x7528;&#x4E8E;&#x6807;&#x8BC6;&#x51FA;&#x5E94;&#x8BE5;&#x88AB;&#x5BF9;&#x5E94;&#x7684;loader&#x8FDB;&#x884C;&#x8F6C;&#x6362;&#x7684;&#x67D0;&#x4E2A;&#x6216;&#x67D0;&#x4E9B;&#x6587;&#x4EF6;&#x3002;</li>
+<li><strong>use</strong> &#x5C5E;&#x6027;&#xFF0C;&#x8868;&#x793A;&#x8FDB;&#x884C;&#x8F6C;&#x6362;&#x65F6;&#xFF0C;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x54EA;&#x4E2A;loader&#x3002;  </li>
+</ol>
+<p>webpack.config.js  </p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path&apos;</span>);
+
+<span class="hljs-keyword">const</span> confit = {
+    output: {
+        filename: <span class="hljs-string">&apos;my-first-webpack.bundle.js&apos;</span>
+    },
+    <span class="hljs-built_in">module</span>:{
+        rulse:[
+            {test: <span class="hljs-regexp">/\.txt$/</span>, use:<span class="hljs-string">&apos;raw-loader&apos;</span>}
+        ]
+    }
+};
+
+<span class="hljs-built_in">module</span>.exports = config;
+</code></pre>
+<p>&#x4EE5;&#x4E0A;&#x914D;&#x7F6E;&#x4E2D;&#xFF0C;&#x5BF9;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;module&#x5BF9;&#x8C61;&#x5B9A;&#x4E49;&#x4E86;<em>rules</em>&#x5C5E;&#x6027;&#xFF0C;&#x91CC;&#x8FB9;&#x5305;&#x542B;&#x4E86;&#x4E24;&#x4E2A;&#x5FC5;&#x987B;&#x5C5E;&#x6027;&#xFF1A;<strong>test</strong>&#x548C;<strong>use</strong>&#x3002;&#x8FD9;&#x544A;&#x8BC9;webpack&#x7F16;&#x8BD1;&#x5668;&#xFF08;compiler&#xFF09;&#x5982;&#x4E0B;&#x4FE1;&#x606F;&#xFF1A;  </p>
+<blockquote>
+<p>&#x201C;&#x563F;&#xFF0C;webpack &#x7F16;&#x8BD1;&#x5668;&#xFF0C;&#x5F53;&#x4F60;&#x78B0;&#x5230;&#x300C;&#x5728; require()/import &#x8BED;&#x53E5;&#x4E2D;&#x88AB;&#x89E3;&#x6790;&#x4E3A; <code>&apos;.txt&apos;</code> &#x7684;&#x8DEF;&#x5F84;&#x300D;&#x65F6;&#xFF0C;&#x5728;&#x4F60;&#x5BF9;&#x5B83;&#x6253;&#x5305;&#x4E4B;&#x524D;&#xFF0C;&#x5148;&#x4F7F;&#x7528; raw-loader &#x8F6C;&#x6362;&#x4E00;&#x4E0B;&#x3002;&#x201D;  </p>
+</blockquote>
+<p><em>&#x91CD;&#x8981;&#x7684;&#x662F;&#x8981;&#x8BB0;&#x5F97;&#xFF0C;&#x5728;webpack&#x914D;&#x7F6E;&#x4E2D;&#x5B9A;&#x4E49;loader&#x65F6;&#xFF0C;&#x8981;&#x5B9A;&#x4E49;&#x5728;<strong>module.rules</strong> &#x4E2D;&#xFF0C;&#x800C;&#x4E0D;&#x662F;<strong>rules</strong>&#x3002;&#x7136;&#x800C;&#xFF0C;&#x5728;&#x5B9A;&#x4E49;&#x9519;&#x8BEF;&#x65F6;webpack&#x4F1A;&#x7ED9;&#x51FA;&#x4E25;&#x91CD;&#x7684;&#x8B66;&#x544A;&#x3002;</em>  </p>
+<h2 id="&#x63D2;&#x4EF6;plugins">&#x63D2;&#x4EF6;[plugins]</h2>
+<p>loder &#x88AB;&#x7528;&#x4E8E;&#x8F6C;&#x6362;&#x67D0;&#x4E9B;&#x7C7B;&#x578B;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x800C;&#x63D2;&#x4EF6;&#x5219;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x6267;&#x884C;&#x8303;&#x56F4;&#x66F4;&#x5E7F;&#x7684;&#x4EFB;&#x52A1;&#x3002;&#x63D2;&#x4EF6;&#x7684;&#x8303;&#x56F4;&#x5305;&#x62EC;&#xFF0C;&#x4ECE;&#x6253;&#x5305;&#x4F18;&#x5316;&#x548C;&#x538B;&#x7F29;&#xFF0C;&#x4E00;&#x76F4;&#x5230;&#x91CD;&#x65B0;&#x5B9A;&#x4E49;&#x73AF;&#x5883;&#x4E2D;&#x7684;&#x53D8;&#x91CF;&#x3002;&#x5DEE;&#x7B80;&#x63A5;&#x53E3;&#x529F;&#x80FD;&#x6781;&#x5176;&#x5F3A;&#x5927;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5904;&#x7406;&#x5404;&#x5F0F;&#x5404;&#x6837;&#x7684;&#x4EFB;&#x52A1;&#x3002;  </p>
+<p>&#x60F3;&#x8981;&#x4E00;&#x4E2A;&#x63D2;&#x4EF6;&#xFF0C;&#x53EA;&#x9700;&#x8981;require()&#x4ED6;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x5B83;&#x6DFB;&#x52A0;&#x5230;plugins&#x6570;&#x7EC4;&#x4E2D;&#x3002;&#x591A;&#x6570;&#x63D2;&#x4EF6;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x9009;&#x9879;&#xFF08;option&#xFF09;&#x81EA;&#x5B9A;&#x4E49;&#x3002;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x56E0;&#x4E3A;&#x4E0D;&#x540C;&#x76EE;&#x7684;&#x800C;&#x591A;&#x6B21;&#x4F7F;&#x7528;&#x540C;&#x4E00;&#x4E2A;&#x63D2;&#x4EF6;&#xFF0C;&#x8FD9;&#x65F6;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x4F7F;&#x7528;<strong>new</strong>&#x64CD;&#x4F5C;&#x7B26;&#x6765;&#x521B;&#x5EFA;&#x4ED6;&#x7684;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x3002;  </p>
+<p>webpack.config.js  </p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> HtmlWebpackPpugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;html-webpack-plugin&apos;</span>); <span class="hljs-comment">//&#x901A;&#x8FC7;npm&#x5B89;&#x88C5;</span>
+<span class="hljs-keyword">const</span> webpack = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;webpack&apos;</span>);<span class="hljs-comment">// &#x7528;&#x4E8E;&#x8BBF;&#x95EE;&#x5185;&#x7F6E;&#x63D2;&#x4EF6;</span>
+
+<span class="hljs-keyword">const</span> config = {
+    modul:{
+        rules:[
+            {test: <span class="hljs-regexp">/\.txt$/</span>, use: <span class="hljs-string">&apos;raw-loader&apos;</span> }
+        ]
+    },
+    plugins:[
+        <span class="hljs-keyword">new</span> HtmlWebpackPlugin({template: <span class="hljs-string">&apos;./src/index.html&apos;</span>})
+    ]
+}
+</code></pre>
+<p>webpack&#x63D0;&#x4F9B;&#x8BB8;&#x591A;&#x5F00;&#x7BB1;&#x53EF;&#x7528;&#x7684;&#x63D2;&#x4EF6;&#xFF01;&#x67E5;&#x9605;<a href="https://www.webpackjs.com/plugins" target="_blank">&#x63D2;&#x4EF6;&#x5217;&#x8868;</a>&#x83B7;&#x53D6;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#x3002;  </p>
+<h2 id="&#x6A21;&#x5F0F;">&#x6A21;&#x5F0F;</h2>
+<p>&#x901A;&#x8FC7;&#x9009;&#x62E9;<strong>development</strong>&#x6216;<strong>production</strong>&#x4E4B;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#xFF0C;&#x6765;&#x8BBE;&#x7F6E;mode&#x53C2;&#x6570;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x542F;&#x7528;&#x76F8;&#x5E94;&#x6A21;&#x5F0F;&#x4E0B;&#x7684;webpack&#x5185;&#x7F6E;&#x7684;&#x4F18;&#x5316;  </p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">module</span>.exports = {
+    mode:<span class="hljs-string">&apos;production&apos;</span>
+}
+</code></pre>
+<h1 id="&#x6A21;&#x5757;">&#x6A21;&#x5757;</h1>
+<p>&#x5728;&#x6A21;&#x5757;&#x5316;&#x7F16;&#x7A0B;&#x4E2D;&#xFF0C;&#x5F00;&#x53D1;&#x8005;&#x5C06;&#x7A0B;&#x5E8F;&#x5206;&#x89E3;&#x6210;&#x79BB;&#x6563;&#x529F;&#x80FD;&#x5757;&#xFF08;discrete chunks of functionality&#xFF09;,&#x5E76;&#x79F0;&#x4E4B;&#x4E3A;&#x6A21;&#x5757;&#x3002;<br>&#x6BCF;&#x4E2A;&#x6A21;&#x5757;&#x5177;&#x6709;&#x6BD4;&#x5B8C;&#x6574;&#x7A0B;&#x5E8F;&#x8DDF;&#x5C0F;&#x7684;&#x63A5;&#x89E6;&#x9762;&#xFF0C;&#x4F7F;&#x5F97;&#x6821;&#x9A8C;&#xFF0C;&#x6D4B;&#x8BD5;&#xFF0C;&#x8C03;&#x8BD5;&#x8F7B;&#x800C;&#x6613;&#x4E3E;&#x3002;&#x7CBE;&#x5FC3;&#x7F16;&#x5199;&#x7684;&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x53EF;&#x9760;&#x7684;&#x5C01;&#x88C5;&#x754C;&#x9650;&#xFF0C;&#x4F7F;&#x5F97;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x6A21;&#x5757;&#x90FD;&#x5177;&#x6709;&#x6761;&#x7406;&#x6E05;&#x695A;&#x7684;&#x8BBE;&#x8BA1;&#x548C;&#x660E;&#x786E;&#x7684;&#x76EE;&#x7684;&#x3002;  </p>
+<p>Node.js&#x4ECE;&#x4E00;&#x5F00;&#x59CB;&#x5C31;&#x652F;&#x6301;&#x6A21;&#x5757;&#x5316;&#x7F16;&#x7A0B;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x5728;web&#xFF0C;&#x6A21;&#x5757;&#x5316;&#x7684;&#x652F;&#x6301;&#x6B63;&#x7F13;&#x6162;&#x5230;&#x6765;&#x3002;&#x5728;web&#x5B58;&#x5728;&#x591A;&#x79CD;&#x652F;&#x6301;JavaScript&#x6A21;&#x5757;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x8FD9;&#x4E9B;&#x5DE5;&#x5177;&#x5404;&#x6709;&#x4F18;&#x52BF;&#x548C;&#x9650;&#x5236;&#x3002;webpack&#x57FA;&#x4E8E;&#x4ECE;&#x8FD9;&#x4E9B;&#x7CFB;&#x7EDF;&#x540E;&#x7684;&#x7684;&#x7ECF;&#x9A8C;&#x6559;&#x8BAD;&#xFF0C;&#x5E76;&#x5C06;&#x6A21;&#x5757;&#x7684;&#x6982;&#x5FF5;&#x5E94;&#x7528;&#x4E8E;&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x4EFB;&#x4F55;&#x6587;&#x4EF6;&#x3002;  </p>
+<h2 id="&#x4EC0;&#x4E48;&#x662F;webpack&#x6A21;&#x5757;">&#x4EC0;&#x4E48;&#x662F;webpack&#x6A21;&#x5757;</h2>
+<p>&#x5BF9;&#x6BD4;Node.js &#x6A21;&#x5757;&#xFF0C;webpack&#x6A21;&#x5757;&#x80FD;&#x591F;&#x4EE5;&#x5404;&#x79CD;&#x65B9;&#x5F0F;&#x8868;&#x8FBE;&#x4ED6;&#x4EEC;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#xFF0C;  </p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import" target="_blank">ES2015</a> <strong>import</strong> &#x8BED;&#x53E5;  </li>
+<li><a href="http://www.commonjs.org/specs/modules/1.0/" target="_blank">CommonJs</a> <strong>require</strong> &#x8BED;&#x53E5;</li>
+<li><a href="https://github.com/amdjs/amdjs-api/blob/master/AMD.md" target="_blank">AMD</a> <strong>define</strong> &#x548C; <strong>require</strong> &#x8BED;&#x53E5;</li>
+<li>css/sass/less &#x6587;&#x4EF6;&#x4E2D;&#x7684; <strong>@import</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@import" target="_blank">&#x8BED;&#x53E5;</a>&#x3002;</li>
+<li>&#x6837;&#x5F0F;(<strong>url()</strong>) &#x6216; HTML &#x6587;&#x4EF6;(<img src="...">)&#x4E2D;&#x7684;&#x56FE;&#x7247;&#x94FE;&#x63A5;(img url)</li>
+</ul>
+<blockquote>
+<p>webpack 1 &#x9700;&#x8981;&#x7279;&#x5B9A;&#x7684; loader &#x6765;&#x8F6C;&#x6362; ES 2015 import&#xFF0C;&#x7136;&#x800C;&#x901A;&#x8FC7; webpack 2 &#x53EF;&#x4EE5;&#x5F00;&#x7BB1;&#x5373;&#x7528;&#x3002;</p>
+</blockquote>
+<h2 id="&#x652F;&#x6301;&#x7684;&#x6A21;&#x5757;&#x7C7B;&#x578B;">&#x652F;&#x6301;&#x7684;&#x6A21;&#x5757;&#x7C7B;&#x578B;</h2>
+<p>webpack &#x901A;&#x8FC7;loader &#x53EF;&#x4EE5;&#x652F;&#x6301;&#x5404;&#x79CD;&#x8BED;&#x8A00;&#x548C;&#x9884;&#x5904;&#x7406;&#x5668;&#x7F16;&#x5199;&#x6A21;&#x5757;&#x3002; loader &#x63CF;&#x8FF0;&#x4E86; webpack &#x5982;&#x4F55;&#x5904;&#x7406;&#x975E;JavaScript(no-jacaScript)&#x6A21;&#x5757;&#xFF0C;&#x5E76;&#x4E14;&#x5728;bundle&#x4E2D;&#x5F15;&#x5165;&#x8FD9;&#x4E9B;&#x4F9D;&#x8D56;&#x3002;webpack&#x793E;&#x533A;&#x5DF2;&#x7ECF;&#x4E3A;&#x5404;&#x79CD;&#x6D41;&#x884C;&#x8BED;&#x8A00;&#x5904;&#x7406;&#x5668;&#x6784;&#x5EFA;&#x4E86;loader&#xFF0C;&#x5305;&#x62EC;&#xFF1A;  </p>
+<ul>
+<li><a href="http://coffeescript.org/" target="_blank">CoffeeScript</a></li>
+<li><a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a></li>
+<li><a href="https://babeljs.io/" target="_blank">ESNext (Babel)</a></li>
+<li><a href="http://sass-lang.com/" target="_blank">Sass</a></li>
+<li><a href="http://lesscss.org/" target="_blank">Less</a></li>
+<li><a href="http://stylus-lang.com/" target="_blank">Stylus</a></li>
+</ul>
+<p>&#x603B;&#x7684;&#x6765;&#x8BF4;webpack&#x63D0;&#x4F9B;&#x4E86;&#x53EF;&#x5B9A;&#x5236;&#x7684;&#x3001;&#x5F3A;&#x5927;&#x548C;&#x4E30;&#x5BCC;&#x7684;API&#xFF0C;&#x5141;&#x8BB8;&#x4EFB;&#x4F55;&#x6280;&#x672F;&#x6808;&#x4F7F;&#x7528;webpack&#xFF0C;&#x4FDD;&#x6301;&#x4E86;&#x5728;&#x5F00;&#x53D1;&#x3001;&#x6D4B;&#x8BD5;&#x548C;&#x751F;&#x4EA7;&#x6D41;&#x7A0B;&#x4E2D;&#x65E0;&#x4FB5;&#x5165;&#x6027;&#xFF08;non - opinionated&#xFF09;&#x3002;  </p>
+<h1 id="&#x6A21;&#x5757;&#x89E3;&#x6790;module-resolution">&#x6A21;&#x5757;&#x89E3;&#x6790;[module resolution]</h1>
+<p>resolver&#x662F;&#x4E00;&#x4E2A;&#x5E93;(library),&#x7528;&#x4E8E;&#x5E2E;&#x52A9;&#x627E;&#x5230;&#x6A21;&#x5757;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x53E6;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x4F9D;&#x8D56;&#x6A21;&#x5757;&#xFF0C;&#x7136;&#x540E;&#x88AB;&#x540E;&#x8005;&#x5F15;&#x7528;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;  </p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> foo <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;path/to/module&apos;</span>
+<span class="hljs-comment">//&#x6216;&#x8005;</span>
+<span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path/module&apos;</span>)
+</code></pre>
+<p>&#x6240;&#x4F9D;&#x8D56;&#x7684;&#x6A21;&#x5757;&#x53EF;&#x4EE5;&#x662F;&#x6765;&#x81EA;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x6216;&#x7B2C;&#x4E09;&#x65B9;&#x7684;&#x5E93;(library)&#x3002;resolve&#x5E2E;&#x52A9;webpack&#x627E;&#x5230;bundle&#x4E2D;&#x9700;&#x8981;&#x5F15;&#x5165;&#x7684;&#x6A21;&#x5757;&#x4EE3;&#x7801;&#xFF0C;&#x8FD9;&#x4E9B;&#x4EE3;&#x7801;&#x5728;&#x5305;&#x542B;&#x6BCF;&#x4E2A;<strong>require</strong>/<strong>import</strong> &#x8BED;&#x53E5;&#x4E2D;&#x3002;&#x5F53;&#x6253;&#x5305;&#x6A21;&#x5757;&#x65F6;&#xFF0C;<strong>webpack</strong> &#x4F7F;&#x7528; <a href="https://github.com/webpack/enhanced-resolve" target="_blank">enhanced-resolve</a>&#x6765;&#x89E3;&#x6790;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;  </p>
+<h2 id="webpack&#x4E2D;&#x7684;&#x89E3;&#x6790;&#x89C4;&#x5219;">webpack&#x4E2D;&#x7684;&#x89E3;&#x6790;&#x89C4;&#x5219;</h2>
+<p>&#x4F7F;&#x7528;<strong>enhanced-resolve</strong> , webpack&#x80FD;&#x591F;&#x89E3;&#x6790;&#x4E09;&#x79CD;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#xFF1A;  </p>
+<h3 id="&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;">&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;/home/me/file&quot;</span>;
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;C:\\Users\\me\\file&quot;</span>;
+</code></pre>
+<p>&#x7531;&#x4E8E;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x53D6;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x9700;&#x8981;&#x8FDB;&#x4E00;&#x6B65;&#x505A;&#x89E3;&#x91CA;&#x3002;  </p>
+<h3 id="&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;">&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;../src/file1&quot;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;./file2&quot;</span>;
+</code></pre>
+<p>&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F7F;&#x7528;<strong>import</strong> &#x6216; <strong>require</strong>&#x7684;&#x8D44;&#x6E90;&#x6587;&#x4EF6;(resource file)&#x6240;&#x5728;&#x7684;&#x76EE;&#x5F55;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x4E0A;&#x4E0B;&#x6587;&#x76EE;&#x5F55;(context directory)&#x3002;&#x5728;<strong>import/require</strong> &#x4E2D;&#x7ED9;&#x5B9A;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x4F1A;&#x6DFB;&#x52A0;&#x6B64;&#x4E0A;&#x4E0B;&#x6587;&#x8DEF;&#x5F84;(context path),&#x4EE5;&#x4EA7;&#x751F;&#x6A21;&#x5757;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;(absolute path)&#x3002;  </p>
+<h3 id="&#x6A21;&#x5757;&#x8DEF;&#x5F84;">&#x6A21;&#x5757;&#x8DEF;&#x5F84;</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;module&quot;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;module/lib/file&quot;</span>;
+</code></pre>
+<p>&#x6A21;&#x5757;&#x5C06;&#x5728;<a href="https://www.webpackjs.com/configuration/resolve/#resolve-modules" target="_blank">resolve.modules</a> &#x4E2D;&#x6307;&#x5B9A;&#x7684;&#x6240;&#x6709;&#x76EE;&#x5F55;&#x5185;&#x641C;&#x7D22;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x66FF;&#x6362;&#x521D;&#x59CB;&#x6A21;&#x5757;&#x8DEF;&#x5F84;&#xFF0C;&#x6B64;&#x66FF;&#x6362;&#x8DEF;&#x5F84;&#x901A;&#x8FC7;&#x4F7F;&#x7528;<a href="https://www.webpackjs.com/configuration/resolve/#resolve-alias" target="_blank">resolve.alias</a> &#x914D;&#x7F6E;&#x9009;&#x9879;&#x6765;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x522B;&#x540D;&#x3002;  </p>
+<p>&#x4E00;&#x65E6;&#x6839;&#x636E;&#x4E0A;&#x8FF0;&#x89C4;&#x5219;&#x89E3;&#x6790;&#x8DEF;&#x5F84;&#x540E;&#xFF0C;&#x89E3;&#x6790;&#x5668;(resolver)&#x5C06;&#x68C0;&#x67E5;&#x8DEF;&#x5F84;&#x662F;&#x5426;&#x6307;&#x5411;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x3002;&#x5982;&#x679C;&#x6709;&#x8DEF;&#x5F84;&#x6307;&#x5411;&#x540C;&#x4E00;&#x6587;&#x4EF6;&#xFF1A;  </p>
+<ul>
+<li>&#x5982;&#x679C;&#x8DEF;&#x5F84;&#x5177;&#x6709;&#x6587;&#x4EF6;&#x6269;&#x5C55;&#x540D;&#xFF0C;&#x5219;&#x88AB;&#x76F4;&#x63A5;&#x5C06;&#x6587;&#x4EF6;&#x6253;&#x5305;&#x3002;  </li>
+<li>&#x5426;&#x5219;&#xFF0C;&#x5C06;&#x4F7F;&#x7528;&#xFF08;resolve.extensions&#xFF09;&#x9009;&#x9879;&#x4F5C;&#x4E3A;&#x6587;&#x4EF6;&#x6269;&#x5C55;&#x540D;&#x6765;&#x89E3;&#x6790;&#xFF0C;&#x6B64;&#x9009;&#x9879;&#x544A;&#x8BC9;&#x89E3;&#x6790;&#x5668;&#x5728;&#x89E3;&#x6790;&#x4E2D;&#x80FD;&#x591F;&#x63A5;&#x53D7;&#x90A3;&#x4E9B;&#x6269;&#x5C55;&#x540D;(&#x4F8B;&#x5982; .js , .jsx)&#x3002;  </li>
+</ul>
+<p>&#x5982;&#x679C;&#x8DEF;&#x5F84;&#x6307;&#x5411;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5219;&#x91C7;&#x53D6;&#x4EE5;&#x4E0B;&#x6B65;&#x9AA4;&#x627E;&#x5230;&#x5177;&#x6709;&#x6B63;&#x786E;&#x6269;&#x5C55;&#x540D;&#x7684;&#x6B63;&#x786E;&#x6587;&#x4EF6;&#xFF1A;</p>
+<ul>
+<li>&#x5982;&#x679C;&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x5305;&#x542B;package.json &#x6587;&#x4EF6;&#xFF0C;&#x5219;&#x6309;&#x7167;&#x987A;&#x5E8F;&#x67E5;&#x627E; resolve.mainFields &#x914D;&#x7F6E;&#x9009;&#x9879;&#x4E2D;&#x6307;&#x5B9A;&#x7684;&#x5B57;&#x6BB5;&#x3002;&#x5E76;&#x4E14; package.json &#x4E2D;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x8FD9;&#x6837;&#x7684;&#x5B57;&#x6BB5;&#x786E;&#x5B9A;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x3002; </li>
+<li>&#x5982;&#x679C; package.json &#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x6216;&#x8005; package.json &#x6587;&#x4EF6;&#x4E2D;&#x7684;main&#x5B57;&#x6BB5;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x90AE;&#x7BB1;&#x8DEF;&#x5F84;&#xFF0C;&#x5219;&#x6309;&#x7167;&#x987A;&#x5E8F;&#x67E5;&#x627E;  resolve.mainFiles &#x914D;&#x7F6E;&#x9009;&#x9879;&#x4E2D;&#x6307;&#x5B9A;&#x7684;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x770B;&#x662F;&#x5426;&#x80FD;&#x5728; import/require &#x76EE;&#x5F55;&#x4E0B;&#x5339;&#x914D;&#x5230;&#x4E00;&#x4E2A;&#x5B58;&#x5728;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x3002;</li>
+<li>&#x6587;&#x4EF6;&#x6269;&#x5C55;&#x540D;&#x901A;&#x8FC7; resolve.mainFiles &#x9009;&#x9879;&#x91C7;&#x7528;&#x7C7B;&#x4F3C;&#x7684;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x89E3;&#x6790;&#x3002;  </li>
+</ul>
+<h3 id="&#x89E3;&#x6790;loaderresolving-loaders">&#x89E3;&#x6790;Loader[Resolving Loaders]</h3>
+<p>Loader &#x89E3;&#x6790;&#x9075;&#x5FAA;&#x4E0E;&#x6587;&#x4EF6;&#x89E3;&#x6790;&#x5668;&#x6307;&#x5B9A;&#x7684;&#x89C4;&#x5219;&#x76F8;&#x540C;&#x7684;&#x89C4;&#x5219;&#x3002;&#x4F46;&#x662F; <a href="https://www.webpackjs.com/configuration/resolve/#resolveloader" target="_blank">resolveLoader</a> &#x914D;&#x7F6E;&#x9009;&#x9879;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x4E3A;Loader&#x63D0;&#x4F9B;&#x72EC;&#x7ACB;&#x7684;&#x89E3;&#x6790;&#x89C4;&#x5219;&#x3002;  </p>
+<h3 id="&#x7F13;&#x5B58;">&#x7F13;&#x5B58;</h3>
+<p>&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x8BBF;&#x95EE;&#x90FD;&#x88AB;&#x7F13;&#x5B58;&#xFF0C;&#x4EE5;&#x4FBF;&#x66F4;&#x5FEB;&#x89E6;&#x53D1;&#x5BF9;&#x540C;&#x4E00;&#x6587;&#x4EF6;&#x7684;&#x591A;&#x884C;&#x6216;&#x4E32;&#x884C;&#x8BF7;&#x6C42;&#x3002;&#x5728;&#x89C2;&#x5BDF;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x53EA;&#x6709;&#x4FEE;&#x6539;&#x8FC7;&#x7684;&#x95EE;&#x4F60;&#x54EA;&#x4F1A;&#x4ECE;&#x7F13;&#x5B58;&#x4E2D;&#x6458;&#x51FA;&#x3002;&#x5982;&#x679C;&#x5173;&#x95ED;&#x89C2;&#x5BDF;&#x6A21;&#x5F0F;&#xFF0C;&#x5728;&#x6BCF;&#x6B21;&#x7F16;&#x8BD1;&#x524D;&#x6E05;&#x9664;&#x7F13;&#x5B58;&#x3002;  </p>
+<h1 id="&#x5165;&#x53E3;&#x8D77;&#x70B9;entry-points">&#x5165;&#x53E3;&#x8D77;&#x70B9;[entry points]</h1>
+<p>&#x5728;webpack&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x6709;&#x591A;&#x79CD;&#x65B9;&#x5F0F;&#x5B9A;&#x4E49; <strong>entry</strong> &#x5C5E;&#x6027;&#x3002;  </p>
+<h2 id="&#x5355;&#x4E2A;&#x5165;&#x53E3;&#xFF08;&#x7B80;&#x5199;&#xFF09;&#x8BED;&#x6CD5;">&#x5355;&#x4E2A;&#x5165;&#x53E3;&#xFF08;&#x7B80;&#x5199;&#xFF09;&#x8BED;&#x6CD5;</h2>
+<p>&#x7528;&#x6CD5;&#xFF1A;entry&#xFF1A;string | Array<string>
+webpack.config.js  </string></p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> config = {
+    entry: <span class="hljs-string">&quot;./path/to/my/entry/file.js&quot;</span>
+};
+
+<span class="hljs-built_in">module</span>.exports = config;
+</code></pre>
+<p>entry &#x5C5E;&#x6027;&#x7684;&#x5355;&#x4E2A;&#x5165;&#x53E3;&#x8BED;&#x6CD5;&#xFF0C;&#x662F;&#x4E0B;&#x9762;&#x7684;&#x7B80;&#x5199;&#xFF1A;  </p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> config = {
+    entry:{
+        main: <span class="hljs-string">&apos;./path/to/my/entry/file.js&apos;</span>
+    }
+}
+</code></pre>
+<blockquote>
+<p>&#x5F53;&#x4F60;&#x5411; <em>entry</em> &#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x65F6;&#x4F1A;&#x53D1;&#x751F;&#x4EC0;&#x4E48;&#xFF1F;&#x5411; <em>entry</em> &#x5C5E;&#x6027;&#x4F20;&#x5165; [&#x6587;&#x4EF6;&#x8DEF;&#x5F84;(file path)&#x6570;&#x7EC4;] &#x5C06;&#x521B;&#x5EFA;&quot;&#x591A;&#x4E2A;&#x4E3B;&#x5165;&#x53E3;(multi-main entry)&quot;&#x3002;&#x5728;&#x4F60;&#x60F3;&#x8981;&#x591A;&#x4E2A;&#x4F9D;&#x8D56;&#x6587;&#x4EF6;&#x4E00;&#x8D77;&#x6CE8;&#x5165;&#xFF0C;&#x5E76;&#x5C06;&#x5B83;&#x4EEC;&#x7684;&#x4F9D;&#x8D56;&#x5BFC;&#x5411;(graph)&#x5230;&#x4E00;&#x4E2A;&quot;chunk&quot;&#x65F6;&#xFF0C;&#x4F20;&#x5165;&#x6570;&#x7EC4;&#x7684;&#x65B9;&#x5F0F;&#x5C31;&#x4F1A;&#x5F88;&#x6709;&#x7528;&#x3002;  </p>
+</blockquote>
+<h2 id="&#x5BF9;&#x8C61;&#x8BED;&#x6CD5;">&#x5BF9;&#x8C61;&#x8BED;&#x6CD5;</h2>
+<p>&#x7528;&#x6CD5;&#xFF1A;entry: {[entryChunkName: string]: string|Array<string>}  </string></p>
+<p>webpack.config.js  </p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> config = {
+    entry:{
+        app: <span class="hljs-string">&apos;./src/app.js&apos;</span>,
+        vendors: <span class="hljs-string">&apos;./src/vendors.js&apos;</span>
+    }
+};
+</code></pre>
+<p>&#x5BF9;&#x8C61;&#x8BED;&#x6CD5;&#x4F1A;&#x6BD4;&#x8F83;&#x7E41;&#x7410;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x8FD9;&#x662F;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x5B9A;&#x4E49;&#x5165;&#x53E3;&#x7684;&#x6700;&#x53EF;&#x6269;&#x5C55;&#x7684;&#x65B9;&#x5F0F;&#x3002;  </p>
+<blockquote>
+<p>&#x201C;&#x53EF;&#x6269;&#x5C55;&#x7684; webpack &#x914D;&#x7F6E;&#x201D;&#x662F;&#x6307;&#xFF0C;&#x53EF;&#x91CD;&#x7528;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x4E0E;&#x5176;&#x4ED6;&#x914D;&#x7F6E;&#x7EC4;&#x5408;&#x4F7F;&#x7528;&#x3002;&#x8FD9;&#x662F;&#x4E00;&#x79CD;&#x6D41;&#x884C;&#x7684;&#x6280;&#x672F;&#xFF0C;&#x7528;&#x4E8E;&#x5C06;&#x5173;&#x6CE8;&#x70B9;(concern)&#x4ECE;&#x73AF;&#x5883;(environment)&#x3001;&#x6784;&#x5EFA;&#x76EE;&#x6807;(build target)&#x3001;&#x8FD0;&#x884C;&#x65F6;(runtime)&#x4E2D;&#x5206;&#x79BB;&#x3002;&#x7136;&#x540E;&#x4F7F;&#x7528;&#x4E13;&#x95E8;&#x7684;&#x5DE5;&#x5177;&#xFF08;&#x5982; <a href="https://github.com/survivejs/webpack-merge" target="_blank">webpack-merge</a>&#xFF09;&#x5C06;&#x5B83;&#x4EEC;&#x5408;&#x5E76;&#x3002;  </p>
+</blockquote>
+<h2 id="&#x591A;&#x9875;&#x9762;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;">&#x591A;&#x9875;&#x9762;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;</h2>
+<p>webpack.config.js  </p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> config = {
+    entry:{
+        pageOne: <span class="hljs-string">&apos;./src/pageOne/index.js&apos;</span>,
+    pageTwo: <span class="hljs-string">&apos;./src/pageTwo/index.js&apos;</span>,
+    pageThree: <span class="hljs-string">&apos;./src/pageThree/index.js&apos;</span>
+    }
+}
+</code></pre>
+<h1 id="&#x8F93;&#x51FA;output">&#x8F93;&#x51FA;[output]</h1>
+<p>&#x914D;&#x7F6E;<code>output</code>&#x9009;&#x9879;&#x53EF;&#x4EE5;&#x63A7;&#x5236;webpack&#x5982;&#x4F55;&#x5411;&#x786C;&#x76D8;&#x5199;&#x5165;&#x7F16;&#x8BD1;&#x6587;&#x4EF6;&#x3002;&#x6CE8;&#x610F;&#xFF0C;&#x5373;&#x4F7F;&#x53EF;&#x4EE5;&#x5B58;&#x5728;&#x591A;&#x4E2A;<code>&#x5165;&#x53E3;</code>&#x8D77;&#x70B9;&#xFF0C;&#x4F46;&#x53EA;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;<code>&#x8F93;&#x51FA;</code>&#x914D;&#x7F6E;&#x3002;  </p>
+<h2 id="&#x7528;&#x6CD5;usage">&#x7528;&#x6CD5;[Usage]</h2>
+<p>&#x5728; webpack &#x4E2D;&#x914D;&#x7F6E;<code>output</code>&#x5C5E;&#x6027;&#x7684;&#x6700;&#x4F4E;&#x8981;&#x6C42;&#x662F;&#xFF0C;&#x5C06;&#x5B83;&#x7684;&#x503C;&#x8BBE;&#x7F6E;&#x4E3A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5305;&#x62EC;&#x4EE5;&#x4E0B;&#x4E24;&#x70B9;&#xFF1A;  </p>
+<ul>
+<li><code>filename</code>&#x7528;&#x4E8E;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x3002;</li>
+<li>&#x76EE;&#x6807;&#x8F93;&#x51FA;&#x76EE;&#x5F55;<code>path</code>&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;</li>
+</ul>
+<p>webpack.config.js  </p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> config = {
+    output: {
+        filename: <span class="hljs-string">&apos;bundle.js&apos;</span>,
+        path: <span class="hljs-string">&apos;/home/proj/public/assets&apos;</span>
+    }
+};
+
+<span class="hljs-built_in">module</span>.exports = config;
+</code></pre>
+<h2 id="&#x591A;&#x4E2A;&#x5165;&#x53E3;&#x8D77;&#x70B9;">&#x591A;&#x4E2A;&#x5165;&#x53E3;&#x8D77;&#x70B9;</h2>
+<p>&#x5982;&#x679C;&#x914D;&#x7F6E;&#x7A7F;&#x4EF6;&#x4E86;&#x591A;&#x4E2A;&#x5355;&#x72EC;&#x7684;&quot;chunk&quot;(&#x4F8B;&#x5982;&#xFF0C;&#x4F7F;&#x7528;&#x591A;&#x4E2A;&#x5165;&#x53E3;&#x8D77;&#x70B9;&#x6216;&#x4F7F;&#x7528;&#x50CF; CommonsChunkPlugin&#x8FD9;&#x6837;&#x7684;&#x63D2;&#x4EF6;)&#xFF0C;&#x5219;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;<a href="https://www.webpackjs.com/configuration/output/#output-filename" target="_blank">&#x5360;&#x4F4D;&#x7B26;(substitutions)</a>&#x6765;&#x786E;&#x4FDD;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x5177;&#x6709;&#x552F;&#x4E00;&#x7684;&#x540D;&#x79F0;&#x3002;  </p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> config={
+    entry: {
+        qpp: <span class="hljs-string">&apos;./src/app.js&apos;</span>,
+        serch: <span class="hljs-string">&apos;./src/search.js&apos;</span>
+    },
+    output: {
+        filename: <span class="hljs-string">&apos;[name].js&apos;</span>,
+        path: __dirname + <span class="hljs-string">&apos;/dist&apos;</span>
+    }
+}
+
+<span class="hljs-comment">// &#x5199;&#x5165;&#x5230;&#x786C;&#x76D8;&#xFF1A;./dist/app.js, ./dist/search.js</span>
+</code></pre>
+<h1 id="&#x6A21;&#x5F0F;mode">&#x6A21;&#x5F0F;[mode]</h1>
+<p>&#x63D0;&#x4F9B;<code>mode</code>&#x914D;&#x7F6E;&#x9009;&#x9879;&#xFF0C;&#x544A;&#x77E5; webpack &#x4F7F;&#x7528;&#x76F8;&#x5E94;&#x6A21;&#x5F0F;&#x7684;&#x5185;&#x7F6E;&#x4F18;&#x5316;&#x3002;  </p>
+<h2 id="&#x7528;&#x6CD5;">&#x7528;&#x6CD5;</h2>
+<p>&#x53EA;&#x5728;&#x914D;&#x7F6E;&#x4E2D;&#x63D0;&#x4F9B;<code>mode</code>&#x9009;&#x9879;</p>
 
                                 
                                 </section>
@@ -298,12 +653,12 @@
 
             
                 
-                <a href="vue.html" class="navigation navigation-prev " aria-label="Previous page: vue.js">
+                <a href="node-js.html" class="navigation navigation-prev " aria-label="Previous page: node.js">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="TypeScript.html" class="navigation navigation-next " aria-label="Next page: TypeScript">
+                <a href="vue.html" class="navigation navigation-next " aria-label="Next page: vue.js">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -314,7 +669,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"webpake","level":"1.1.4","depth":2,"next":{"title":"TypeScript","level":"1.1.5","depth":2,"path":"text/TypeScript.md","ref":"text/TypeScript.md","articles":[]},"previous":{"title":"vue.js","level":"1.1.3","depth":2,"path":"text/vue.md","ref":"text/vue.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"text/webpake.md","mtime":"2019-05-31T05:52:32.833Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-31T09:11:14.535Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"webpake","level":"1.1.3","depth":2,"next":{"title":"vue.js","level":"1.1.4","depth":2,"path":"text/vue.md","ref":"text/vue.md","articles":[]},"previous":{"title":"node.js","level":"1.1.2","depth":2,"path":"text/node-js.md","ref":"text/node-js.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"text/webpake.md","mtime":"2020-07-09T23:20:26.588Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-17T17:13:31.724Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -322,10 +677,6 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

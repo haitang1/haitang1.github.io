@@ -5,11 +5,11 @@ var vm = new Vue({
   // 选项
 })
 ```  
-```javascript
+```html
 <div id="vue_det">
     <h1>site : {{site}}</h1>
     <h1>url : {{url}}</h1>
-    <h1>{{details()}}</h1>
+    
 </div>
 <script type="text/javascript">
     var vm = new Vue({
@@ -20,9 +20,7 @@ var vm = new Vue({
             alexa: "10000"
         },
         methods: {
-            details: function() {
-                return  this.site + " - 学的不仅是技术，更是梦想！";
-            }
+           
         }
     })
 </script>
@@ -35,7 +33,7 @@ Vue构造器中有一个`el`参数,他是DOM元素中的`id`。
 <div id="vue_det">
     <h1>site : {{site}}</h1>
     <h1>url : {{url}}</h1>
-    <h1>{{details()}}</h1>
+    
 </div>
 ```  
 当一个Vue实例创建时

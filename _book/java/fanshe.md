@@ -1,0 +1,158 @@
+# 一.反射
+## 1.什么是反射
+* 反射机制指的是在程序当中我们可以通过API获取任何类的内部信息,并且可以直接操作该类对象中的属性和方法
+
+## 2.Class类
+* 每一个类都有一个唯一的Class对象,这个对象包含了该类的结构,属性,和方法等所有的内容.
+* Class本身也是一个类
+* Class类就是反射的根源,如果想动态的加载或者运行类,则必须获得该类的Class对象
+
+## 3.获取Class类对象的方法
+* **如果是已知具体的类,我们可以通过class属性获取,该方法最为安全可靠,程序的性能最高**
+
+```java
+/*
+    People是一个实体类
+  */
+  Class c=People.class;
+  System.out.println(c);//cn.kgc.People
+
+  //通过类对象来获取父类对象
+  Class c1=c.getSuperclass();
+  System.out.println(c1);//java.lang.Object	
+```
+* **已知某一个类的实例对象,我们可以通过实例对象的getClass()方法来获取Class对象**
+
+```java
+Class c=p.getClass();
+System.out.println(c);//cn.kgc.People
+```
+* **已知一个类的全名(所在的包路径),且该类在类路径下,则我们可以通过forName()方法来获取,只是该方法会给我们抛出一个异常.**
+
+```java
+try {
+	Class c=Class.forName("cn.kgc.People");
+	System.out.println(c);//cn.kgc.People
+} catch (ClassNotFoundException e) {
+	e.printStackTrace();
+}
+```
+* **注意:如果是程序内置的基本数据类型,则我们可以通过类名.TYPE来获取Class对象.**
+
+```java
+Class c=Integer.TYPE;
+System.out.println(c); //int
+```
+## 4.类的加载
+* 加载:将class的字节码文件内容加载到内存当中,生成一个**java.lang.Class**对象.
+* 链接:将java代码的二进制合并到JVM运行状态中,为类变量(static修饰的变量)分配到内存中,并且赋值一个初始值(例如:int类型的就是0).
+* 初始化:执行类的构造方法(该方法不是给变量初始化的构造方法)`<clinit>()`方法,该方法中会将所有的类变量(static)和静态块中的代码合并.
+
+```java
+public class Demo1 {
+	public static void main(String[] args) {
+		A a=new A();
+		System.out.println(a.num);
+		/**
+		 * A的静态块
+		 * A的构造方法
+		 * 100
+		 * 
+		 * 加载步骤:
+		 * 1.加载生成Class对象
+		 * 2.链接:将num在内存中赋初始值0
+		 * 3.初始化:将类变量和静态块中的代码
+		 *   合并,合并成如下状态:
+		 *   clinit(){
+		 *     System.out.println("A的静态块");
+		 *     num=200;
+		 *     num=100;
+		 *   }
+		 */
+	}
+}
+class A{
+	public A(){
+		System.out.println("A的构造方法");
+	}
+	static{
+		System.out.println("A的静态块");
+		num=200;
+	}
+    public static int num=100;
+}
+```
+## 5.Class类对象中的常用方法
+| 方法名                           | 功能说明                         |
+| -------------------------------- | -------------------------------- |
+| getName()                        | 返回此对象表示的名称             |
+| Class getSupperClass()           | 返回当前Class对象的父类Class对象 |
+| static ClassForName(String name) | 返回指定类名name的Class对象      |
+| Class[] getInterfaces()          | 返回当前Class对象的接口          |
+| Constructors[] getConstructors() | 返回当前包含构造方法的对象的数组 |
+| ClassLoader getClassLoader()     | 返回该类的加载器                 |
+| Object newInstance()             | 返回Class实例对象                |
+## 6.获取类的结构
+```java
+public class Demo {
+	public static void main(String[] args) throws ClassNotFoundException, NoSuchFieldException, SecurityException, NoSuchMethodException {
+		//Class c1=Class.forName("cn.kgc.People");
+		People p=new People();
+		Class c1=p.getClass();
+		//1.获取类的名字(全名)
+		String name=c1.getName();
+		System.out.println(name);//cn.kgc.People
+	    //补充:获取类的名字(不带包名)
+		name=c1.getSimpleName();
+		System.out.println(name);//People
+	
+		//2.获取类中的属性
+		Field[] fs=c1.getFields();//该方法只能获取类中public修饰的属性
+		fs=c1.getDeclaredFields();//获取全部的属性,包括私有的
+		for(Field f:fs){
+			System.out.println("全部的属性有:"+f);
+		}
+		
+		//3.获取指定的属性值
+		Field fieldName=c1.getDeclaredField("age");
+		System.out.println("指定的属性值为:"+fieldName);//指定的属性值为:private int cn.kgc.People.age
+
+		//4.获取类中的方法
+		Method[] ms=c1.getMethods();//获取所有public修饰的方法(包含父类的)
+		for(Method m:ms){
+			System.out.println("所有的方法有:"+m);
+		}
+		ms=c1.getDeclaredMethods();
+		for(Method m:ms){
+			System.out.println("本类中的方法有:"+m);
+		}
+		
+		//5.获取指定的方法
+		Method getName=c1.getMethod("getName", null);
+		System.out.println(getName);//public java.lang.String cn.kgc.People.getName()
+		/**
+		 * 注意:getMethod()中如果获取的方法当中
+		 * 有参数,则需要传入一个该参数类型所代表
+		 * 的Class对象
+		 * 例如:setName(String name)->
+		 * getMethod("setName",String.class)
+		 */
+		Method setName=c1.getMethod("setName", String.class);
+		System.out.println(setName);
+	
+		//6.获取构造器
+		Constructor[] cs=c1.getConstructors();//获取所有public修饰的构造方法
+		for(Constructor c:cs){
+			System.out.println("public修饰的构造方法:"+c);
+		}
+		cs=c1.getDeclaredConstructors();
+		for(Constructor c:cs){
+			System.out.println("所有的构造方法:"+c);
+		}
+      
+		//7.获取指定的构造器
+		Constructor ct=c1.getDeclaredConstructor(int.class,String.class,String.class,double.class);
+		System.out.println(ct);
+	}
+}
+```
